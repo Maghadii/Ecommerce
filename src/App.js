@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import Signup from "./pages/Signup";
 import { AuthProvider } from './components/AuthContext';
 import Contact from './pages/Contact';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path='/contact' element={<Contact />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/product/:productId' element={<ProductDetails />} />
+            <Route path='/*' element={<NotFound />} />
           </Routes>
           <Footer />
         </BrowserRouter>

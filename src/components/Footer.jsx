@@ -49,7 +49,7 @@ const Footer = () => {
                                     <li>Shop</li>
                                 </ul>
                             </div>
-                            <div className="col-2 pt-3 pl">
+                            <div className="col-2 pl">
                                 <h6 className='mb-3'>Quick Link</h6>
                                 <ul>
                                     <li>Privacy Policy</li>
@@ -86,7 +86,7 @@ const Footer = () => {
                 </div>
             </footer>
             <div className="down-footer">
-                <p className='m-0 text-white'>Copyright Rimel 2022. All right reserved</p>
+                <p className='m-0 text-white text-center'>Copyright Rimel 2022. All right reserved</p>
             </div>
         </>
     )

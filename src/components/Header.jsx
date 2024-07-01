@@ -52,7 +52,7 @@ const Header = () => {
                                                 <ul>
                                                     <NavLink to="/" >Home</NavLink>
                                                     <NavLink to="/contact">Contact</NavLink>
-                                                    <li>About</li>
+                                                    <NavLink to="/about">About</NavLink>
                                                     <NavLink to="/signup">Sign Up</NavLink>
                                                 </ul>
                                             </nav>

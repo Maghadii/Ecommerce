@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Delivery from '../components/Delivery';
 import Banner from '../components/Banner';
 import Sales from '../components/Sales';
