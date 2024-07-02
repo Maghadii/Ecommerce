@@ -1,5 +1,5 @@
-import React from 'react'
-import Counter from './Counter'
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,8 +12,17 @@ import Product1 from '../images/product-1.png';
 import Product2 from '../images/product-2.png';
 import Product3 from '../images/product-3.png';
 import Product4 from '../images/product-4.png';
+import Counter from './Counter';
+
 
 const Sales = () => {
+    const products = [
+        { id: 1, name: 'HAVIT HV-G92 Gamepad', price: 120, originalPrice: 160, image: Product1, rating: 88 },
+        { id: 2, name: 'AK-900 Wired Keyboard', price: 960, originalPrice: 1160, image: Product2, rating: 75 },
+        { id: 3, name: 'IPS LCD Gaming Monitor', price: 370, originalPrice: 400, image: Product3, rating: 99 },
+        { id: 4, name: 'S-Series Comfort Chair', price: 375, originalPrice: 400, image: Product4, rating: 99 },
+    ];
+
     return (
         <>
             <section className='slaes-sec'>
@@ -43,237 +52,36 @@ const Sales = () => {
                         modules={[Pagination, Navigation]}
                         className="mySwiper"
                     >
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product1} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
+                        {products.map(product => (
+                            <SwiperSlide key={product.id}>
+                                <Link to={`/product/${product.id}`}>
+                                    <div className="sales-product">
+                                        <img src={product.image} alt={product.name} />
+                                        <div className="product-like">
+                                            <div className="like">
+                                                <IoIosHeartEmpty />
+                                            </div>
+                                            <div className="view">
+                                                <IoEyeOutline />
+                                            </div>
+                                        </div>
+                                        <div className="btn">
+                                            <button>Add To Cart</button>
+                                        </div>
                                     </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
+                                    <div className="product-detail">
+                                        <h6>{product.name}</h6>
+                                        <p className='price'>${product.price}<span>${product.originalPrice}</span></p>
+                                        <div className="stars">
+                                            {[...Array(5)].map((_, i) => (
+                                                <HiStar key={i} className='star' />
+                                            ))}
+                                            <strong> ({product.rating})</strong>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>HAVIT HV-G92 Gamepad</h6>
-                                <p className='price'>$120<span>$160</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (88)</strong>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product2} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>AK-900 Wired Keyboard</h6>
-                                <p className='price'>$960<span>$1160</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (75)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product3} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>IPS LCD Gaming Monitor</h6>
-                                <p className='price'>$370<span>$400</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (99)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product4} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>S-Series Comfort Chair</h6>
-                                <p className='price'>$375<span>$400</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (99)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product1} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>HAVIT HV-G92 Gamepad</h6>
-                                <p className='price'>$120<span>$160</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (88)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product2} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>AK-900 Wired Keyboard</h6>
-                                <p className='price'>$960<span>$1160</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (75)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product3} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>IPS LCD Gaming Monitor</h6>
-                                <p className='price'>$370<span>$400</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (99)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div className="sales-product">
-                                <img src={Product4} alt="" />
-                                <div className="product-like">
-                                    <div className="like">
-                                        <IoIosHeartEmpty />
-                                    </div>
-                                    <div className="view">
-                                        <IoEyeOutline />
-                                    </div>
-                                </div>
-                                <div className="btn">
-                                    <button>Add To Cart</button>
-                                </div>
-                            </div>
-                            <div className="product-detail">
-                                <h6>S-Series Comfort Chair</h6>
-                                <p className='price'>$375<span>$400</span></p>
-                                <div className="stars">
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <HiStar className='star' />
-                                    <strong> (99)</strong>
-                                </div>
-
-                            </div>
-                        </SwiperSlide>
+                                </Link>
+                            </SwiperSlide>
+                        ))}
                     </Swiper>
                     <div className="swiper-nav-btn">
                         <div className="swiper-button-prev"></div>
@@ -289,7 +97,7 @@ const Sales = () => {
                 </div>
             </section>
         </>
-    )
+    );
 }
 
-export default Sales
+export default Sales;
